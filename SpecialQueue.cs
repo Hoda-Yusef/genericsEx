@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//Hoda Khier + Yusef Aborokn 44/5
+
 namespace genericsEx
 {
     class SpecialStack<T>
@@ -17,7 +19,7 @@ namespace genericsEx
             count = 0;
         }
 
-        public void Push(T elment)
+        public void Push(T elment)//מתודה המקבלת ערך כלשהו, ומכניסה אותו לסוף התור
         {
             if (count < arr.Length)
             {
@@ -26,7 +28,7 @@ namespace genericsEx
             }
         }
 
-        public T Pop()
+        public T Pop()//מתודה שכאשר היא מופעלת, מוציאה את האיבר מראש התור
         {
             if (count > 0 )
             {
@@ -46,12 +48,12 @@ namespace genericsEx
                 return default(T);
         }
 
-        public bool IsEmpty()
+        public bool IsEmpty()//מתודה המחזירה אמת או שקר אם התור ריק או לא
         {
             return (count == 0);
         }
 
-        public override string ToString()
+        public override string ToString()//שיטה שמחזירה מחרוזת 
         {
             string str = string.Empty;
             for (int i = 0; i < count; i++)
@@ -62,7 +64,7 @@ namespace genericsEx
         }
 
 
-        public T Remove(SpecialStack<T> st1)
+        public T Remove(SpecialStack<T> st1)//מתודה שכאשר היא מופעלת, מוציאה את האיבר מראש התור ומחזירה אותו. אם אין איבר בראש התור
         {
             T result,tmp;
             SpecialStack<T> tmp_stack = new SpecialStack<T>(10);
@@ -70,11 +72,9 @@ namespace genericsEx
             {
                 tmp = st1.Pop();
                 tmp_stack.Push(tmp);
-                /*
-                tmp_stack.count++;
-                st1.count--;
-                */
+                
             }
+
             // אחרון בתור
             result = st1.Pop();
 
